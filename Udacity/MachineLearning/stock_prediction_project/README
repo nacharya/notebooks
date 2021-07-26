@@ -1,0 +1,55 @@
+Files:
+
+README				- This file
+stock_predict.py		- the main stock prediction code
+stock_predict_visualize.ipynb	- data moving average visualization 
+Proposal.pdf			- Initial project proposal
+data/				- data gathered for analysis
+processed/			- data processed during prediction
+
+Using stock_predict.py
+======================
+
+Check for the program options 
+
+% ./stock_precict.py --help
+
+
+1. Fetch all the data using the data gather option
+
+% ./stock_predict.py --gather 
+
+2. Check that the data has been retrieved
+
+% ls data
+% ls data/AAPL data/GOOG data/AMZN data/NFLX
+
+  Stock data obtained from Yahoo Finance
+
+% ls data/AAPL/AAPL-stock-data.csv
+
+Files of the names like BATSshvol20170317.txt.zip are used to get the Short-Ratio 
+
+3. Now do the prediction 
+
+% ./stock_predict.py --summary 
+
+
+stock  GOOG  predicted for  6-12-2017  is :  920.660193036
+stock  AAPL  predicted for  6-12-2017  is :  154.113804227
+stock  AMZN  predicted for  6-12-2017  is :  933.953044587
+stock  NFLX  predicted for  6-12-2017  is :  158.83517277
+
+
+4. if you would like to change the dates . edit the file stock_predict.py 
+   and change the ticker symbols in the variable 'queries'
+
+5. Benchmark 
+
+% ./stock-predict.py -b svm 0.90
+
+Here it takes the entire data from begin and end date, then splits it into 90%
+as begin and end , the uses the remaining 10% as prediction date true values and 
+uses the prediction method to check the accuracy of the algorithm. 
+In this example we used "svm". We can also use "linear" for linear regression
+
